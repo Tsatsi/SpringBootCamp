@@ -1,10 +1,10 @@
 package controller;
 
 import org.junit.Test;
-import org.springframework.http.ResponseEntity;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNot.not;
 
 public class HomePageControllerTest {
 
@@ -13,5 +13,11 @@ public class HomePageControllerTest {
         HomePageController homePageController = new HomePageController();
         assertThat(homePageController.home(),is("Hello World!"));
 
+    }
+
+    @Test
+    public void shouldKnowDisplayHelloDoesNotDisplayStrangeMessage(){
+        HomePageController homePageController = new HomePageController();
+        assertThat(homePageController.home(), is(not("Blah Blah Blah")));
     }
 }
